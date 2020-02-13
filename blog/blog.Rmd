@@ -1,0 +1,20 @@
+---
+title: "blog"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+placeholder for your blog post
+
+```{r, eval = FALSE}
+# Do once
+install()
+```
+
+```{r, eval = FALSE}
+library(math241S20PkgGrpX)
+```
+
