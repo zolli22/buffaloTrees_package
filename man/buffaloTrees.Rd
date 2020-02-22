@@ -10,7 +10,6 @@
   \item{botanical_name}{The species of the tree}
   \item{common_name}{The common name of the tree species}
   \item{dbh}{Diameter at breast height, or DBH, is a standard method of expressing the diameter of the trunk or bole of a standing tree (in inches) measured at 4.5 feet above ground level.}
-  \item{condition}{Trees were rated as good, fair, poor, or dead. These general ratings reflect whether or not a tree is likely to continue contributing to the urban forest (good and fair trees) or whether the tree is at or near the end of its life (poor and dead trees).}
   \item{total_yearly_eco_benefits}{The total dollar amount of benefits that a tree provides. This is a combination of greenhouse gas benefits, water benefits, energy benefits, air quality benefits, and property benefits.}
   \item{stormwater_benefits}{The total dollar amount of stormwater benefits that a tree provides by reducing the amount of runoff and pollutant loading in receiving waters}
   \item{stormwater_gallons_saved}{The total amount of gallons of water saved by a tree as a result of intercepting and storing rainfall in leaves and branches, increasing soil infiltration through root growth and decomposition, reducing soil erosion by diminishing the impact of rain on barren surfaces, and reducing soil moisture thereby increasing the soil's capacity to store rainfall.}
