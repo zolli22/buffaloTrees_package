@@ -1,6 +1,6 @@
 # buffaloTrees
 
-Data package for the inventoried trees in Buffalo, NY. 
+Data package for the inventorized trees in Buffalo, NY. 
 
 This dataset comprises all street trees within the City of Buffalo. The City of Buffalo Bureau of Forestry is responsible for maintaining and preserving the public urban forest.
 
