@@ -1,10 +1,13 @@
-## code to prepare `DATASET` dataset goes here
-
+# Libraries
 library(tidyverse)
+library(janitor)
 
-usethis::use_data("DATASET")
+# Data Import
+tree_inventory <- read_csv("data-raw/Tree_Inventory.csv")
 
-tree_inventory <- read_csv("~/math241/math241S20PkgGrp4/data-raw/tree-inventory-1.csv")
-glimpse(tree_inventory)
+# Clean up names
+buffaloTrees <- tree_inventory %>%
+  clean_names()
 
-usethis::use_data(tree_inventory, overwrite = TRUE)
+# Add datafiles to the project
+usethis::use_data(buffaloTrees, overwrite = TRUE)
