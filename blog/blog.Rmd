@@ -22,7 +22,7 @@ library(janitor)
 ```
 
 ```{r, eval = TRUE}
-buf_data <- read_csv("~/math241/math241s20PkgGrp4/data-raw/tree-inventory-1.csv")
+buf_data <- read_csv("~/math241/math241s20PkgGrp4/data-raw/Tree_Inventory.csv")
 buf_trees <- clean_names(buf_data)
 comm <- as.data.frame(sort(table(buf_trees$common_name),decreasing=TRUE)[2:6])
 buf_comm <- buf_trees %>%
@@ -37,7 +37,7 @@ ggplot(buf_comm, aes(x = latitude, y = longitude, color = common_name)) +
 The various types of trees found in Buffalo may be compared to discover which are the most environmentally or economically beneficial.  This makes the dataset highly relevant, as it provides fresh (updated biannually) data which could provide helpful clues about how to successfully maintain an urban forest in a typical American city.  If you were in charge of improving the city of Buffalo through a tree-planting initiative, which type of tree would you plant most?
 
 ```{r, eval = TRUE}
-buf_data <- read_csv("~/math241/math241s20PkgGrp4/data-raw/tree-inventory-1.csv")
+buf_data <- read_csv("~/math241/math241s20PkgGrp4/data-raw/Tree_Inventory.csv")
 buf_trees <- clean_names(buf_data)
 comm <- as.data.frame(sort(table(buf_trees$common_name),decreasing=TRUE)[2:6])
 buf_comm <- buf_trees %>%
