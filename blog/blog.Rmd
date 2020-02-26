@@ -50,4 +50,4 @@ ggplot(buf_comm, aes(x = common_name, y = total_yearly_eco_benefits, color = com
         axis.text.x=element_blank())
 ```
 
-For any questions regarding the data itself, you may contact the dataset owner through the link provided on the [Tree Inventory](https://data.buffalony.gov/Quality-of-Life/Tree-Inventory/n4ni-uuec) page.  Questions regarding this R package may be directed to [daherrero](https://github.com/daherrero), [nothinbutice](https://github.com/nothinbutice), or [zolli22](https://github.com/zolli22).  
+For any questions regarding the data itself, you may contact the dataset owner through the link provided on Buffalo's [Tree Inventory](https://data.buffalony.gov/Quality-of-Life/Tree-Inventory/n4ni-uuec) page.  Questions regarding this R package may be directed to [daherrero](https://github.com/daherrero), [nothinbutice](https://github.com/nothinbutice), or [zolli22](https://github.com/zolli22).  
