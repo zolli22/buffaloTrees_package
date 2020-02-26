@@ -1,20 +1,53 @@
 ---
-title: "blog"
+title: "Trees Grow On Buffalo"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
-placeholder for your blog post
+How many trees can you fit on a buffalo?  If that buffalo is Buffalo, NY, then the answer exceeds 130 thousand!
 
-```{r, eval = FALSE}
+Inspired by [pdxTrees](https://github.com/mcconvil/pdxTrees), this R package `buffaloTrees` provides easy access to a dataset with information on each of Buffalo's street trees.  As these trees are cared for by the City of Buffalo Bureau of Forestry, the data can be found on the city's [open data website](https://data.buffalony.gov).  The dataset contains 27 variables which centre around three main topics: tree location, including the coordinates and street adress; tree name, the scientific name as well as the common one; and tree impact, measured through metrics like pounds of CO2 sequestered and increased property values.  
+
+With this dataset, we can investigate any individual tree with quite a bit of detail.  For example, there is the Gymnocladus Dioicus (Kentucky Coffee Tree) that sits in front of 526 East Utica Street.  This tree is considered to produce almost $80 in yearly benefits through effects such as the collection of stormwater and decreased heating costs due to the shade it provides.  Thats an impressive impact for a tree which---when measured the standard 4.5 feet off the ground---is only 3 inches wide.
+
+As there are over 300 types of trees in this dataset, we will focus on a few of the most common for the graphs below.  Four of the five most common tree types are various breeds of maple, and collectively these five species account for over 20% of the total trees in the city.  One should note that this dataset isnt perfectly tidy---more than 40% of trees in the dataset simply state "vacant" as their tree type, which suggests that much of the data is incomplete.  Using the latitude and longitude of each tree we can create a map that shows what kinds of trees are where.
+
+```{r, eval = TRUE}
 # Do once
-install()
+library(tidyverse)
+library(janitor)
 ```
 
-```{r, eval = FALSE}
-library(math241S20PkgGrpX)
+```{r, eval = TRUE}
+buf_data <- read_csv("~/math241/math241s20PkgGrp4/data-raw/tree-inventory-1.csv")
+buf_trees <- clean_names(buf_data)
+comm <- as.data.frame(sort(table(buf_trees$common_name),decreasing=TRUE)[2:6])
+buf_comm <- buf_trees %>%
+  filter(common_name %in% comm$Var1) 
+
+ggplot(buf_comm, aes(x = latitude, y = longitude, color = common_name)) +
+  scale_colour_discrete() +
+  geom_point(alpha = .05) +
+  guides(colour = guide_legend(override.aes = list(alpha=1)))
 ```
 
+The various types of trees found in Buffalo may be compared to discover which are the most environmentally or economically beneficial.  This makes the dataset highly relevant, as it provides fresh (updated biannually) data which could provide helpful clues about how to successfully maintain an urban forest in a typical American city.  If you were in charge of improving the city of Buffalo through a tree-planting initiative, which type of tree would you plant most?
+
+```{r, eval = TRUE}
+buf_data <- read_csv("~/math241/math241s20PkgGrp4/data-raw/tree-inventory-1.csv")
+buf_trees <- clean_names(buf_data)
+comm <- as.data.frame(sort(table(buf_trees$common_name),decreasing=TRUE)[2:6])
+buf_comm <- buf_trees %>%
+  filter(common_name %in% comm$Var1) 
+
+ggplot(buf_comm, aes(x = common_name, y = total_yearly_eco_benefits, color = common_name)) +
+  geom_violin() +
+  geom_boxplot(width = .05) +
+  theme(axis.ticks.x=element_blank(),
+        axis.text.x=element_blank())
+```
+
+For any questions regarding the data itself, you may contact the dataset owner through the link provided on the [Tree Inventory](https://data.buffalony.gov/Quality-of-Life/Tree-Inventory/n4ni-uuec) page.  Questions regarding this R package may be directed to [daherrero](https://github.com/daherrero), [nothinbutice](https://github.com/nothinbutice), or [zolli22](https://github.com/zolli22).  
